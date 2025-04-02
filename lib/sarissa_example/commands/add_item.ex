@@ -9,9 +9,9 @@ defmodule SarissaExample.Commands.AddItem do
   def initialize(_opts), do: 0
 
   @impl Sarissa.Evolver
-  def handle_event(%Events.ItemAdded{}, no_of_items_in_cart) do
-    no_of_items_in_cart + 1
-  end
+  def handle_event(%Events.ItemAdded{}, no_of_items_in_cart), do: no_of_items_in_cart + 1
+
+  def handle_event(%Events.ItemRemoved{}, no_of_items_in_cart), do: no_of_items_in_cart - 1
 
   @impl Sarissa.Decider
   def channel(id, _opts), do: Channel.new("cart", id: id)
@@ -30,9 +30,9 @@ defmodule SarissaExample.Commands.AddItem do
       no_of_items_in_cart == 0 ->
         {:write,
          [
-           %Events.CartCreated{id: command.id},
+           %Events.CartCreated{cart_id: command.id},
            %Events.ItemAdded{
-             id: command.id,
+             cart_id: command.id,
              description: command.description,
              image: command.image,
              price: command.price,
@@ -45,7 +45,7 @@ defmodule SarissaExample.Commands.AddItem do
         {:write,
          [
            %Events.ItemAdded{
-             id: command.id,
+             cart_id: command.id,
              description: command.description,
              image: command.image,
              price: command.price,

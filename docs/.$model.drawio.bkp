@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
   <diagram name="Sida-1" id="TrfKYCtM4LX_KNFkHv2a">
-    <mxGraphModel dx="1368" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="2565" dy="1858" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="cvKRPJywNSSaQHl2xb0Q-17" value="Slices" parent="0" />
@@ -10,13 +10,13 @@
         <mxCell id="cvKRPJywNSSaQHl2xb0Q-18" value="&lt;span&gt;Add item&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#66CC00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
           <mxGeometry x="1060" y="720" width="420" height="1550" as="geometry" />
         </mxCell>
-        <mxCell id="cvKRPJywNSSaQHl2xb0Q-72" value="Remove item" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#FFD966;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
+        <mxCell id="cvKRPJywNSSaQHl2xb0Q-72" value="Remove item" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#66CC00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
           <mxGeometry x="1690" y="720" width="420" height="1550" as="geometry" />
         </mxCell>
         <mxCell id="cvKRPJywNSSaQHl2xb0Q-83" value="Cart items" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#FFD966;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
           <mxGeometry x="2170" y="720" width="440" height="1550" as="geometry" />
         </mxCell>
-        <mxCell id="cvKRPJywNSSaQHl2xb0Q-104" value="Cart items" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#FFD966;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
+        <mxCell id="cvKRPJywNSSaQHl2xb0Q-104" value="Cart items" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;fillColor=none;strokeWidth=4;strokeColor=#66CC00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;spacingTop=0;spacingBottom=-17;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">
           <mxGeometry x="1500" y="720" width="180" height="1550" as="geometry" />
         </mxCell>
         <mxCell id="cvKRPJywNSSaQHl2xb0Q-113" value="CartItems" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cvKRPJywNSSaQHl2xb0Q-17">

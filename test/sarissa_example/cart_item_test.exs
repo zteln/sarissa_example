@@ -9,10 +9,10 @@ defmodule SarissaExample.CartItemsTest do
       context,
       [
         %Sarissa.Events.CartCreated{
-          id: "test-cart"
+          cart_id: "test-cart"
         },
         %Sarissa.Events.ItemAdded{
-          id: "test-cart",
+          cart_id: "test-cart",
           description: "item desc",
           image: "item image",
           price: 100,

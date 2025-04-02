@@ -18,10 +18,10 @@ defmodule SarissaExample.AddItemTest do
       },
       [
         %Sarissa.Events.CartCreated{
-          id: "test-cart"
+          cart_id: "test-cart"
         },
         %Sarissa.Events.ItemAdded{
-          id: "test-cart",
+          cart_id: "test-cart",
           description: "item desc",
           image: "item image",
           price: 100,
@@ -37,10 +37,10 @@ defmodule SarissaExample.AddItemTest do
       context,
       [
         %Sarissa.Events.CartCreated{
-          id: "test-cart"
+          cart_id: "test-cart"
         },
         %Sarissa.Events.ItemAdded{
-          id: "test-cart",
+          cart_id: "test-cart",
           description: "item desc",
           image: "item image",
           price: 100,
@@ -48,7 +48,7 @@ defmodule SarissaExample.AddItemTest do
           product_id: 2
         },
         %Sarissa.Events.ItemAdded{
-          id: "test-cart",
+          cart_id: "test-cart",
           description: "item desc",
           image: "item image",
           price: 100,
@@ -56,7 +56,7 @@ defmodule SarissaExample.AddItemTest do
           product_id: 3
         },
         %Sarissa.Events.ItemAdded{
-          id: "test-cart",
+          cart_id: "test-cart",
           description: "item desc",
           image: "item image",
           price: 100,
