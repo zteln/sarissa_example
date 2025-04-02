@@ -17,7 +17,9 @@ defmodule SarissaExample.Commands.AddItem do
   def channel(id, _opts), do: Channel.new("cart", id: id)
 
   @impl Sarissa.Decider
-  def state(opts), do: evolve(opts)
+  def state(channel, opts) do
+    evolve(channel, opts)
+  end
 
   @impl Sarissa.Decider
   def decide(%__MODULE__{} = command, no_of_items_in_cart) do
