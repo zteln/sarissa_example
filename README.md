@@ -1,5 +1,7 @@
 # SarissaExample
 
+Example demonstrating [Sarissa](https://github.com/zteln/sarissa) with the example from [Understanding Eventsourcing](https://github.com/dilgerma/eventsourcing-book).
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
