@@ -5,13 +5,14 @@ defmodule SarissaExample.Queries.Inventories do
   use Sarissa.Decider, [:id]
   use Sarissa.Projector
   alias Sarissa.Events
+  alias Sarissa.Context
   alias SarissaExample.Repo
   alias SarissaExample.Inventories.Inventory
 
   @impl Sarissa.Evolver
   def initial_context(_opts) do
     channel = Sarissa.EventStore.Channel.new("product", type: :by_category)
-    Sarissa.Context.new(channel: channel)
+    Context.new(channel: channel)
   end
 
   @impl Sarissa.Evolver
@@ -27,9 +28,16 @@ defmodule SarissaExample.Queries.Inventories do
   end
 
   @impl Sarissa.Decider
-  def decide(%__MODULE__{} = query, _state) do
+  def context(id, _opts) do
+    state = Repo.get_by(Inventory, product_id: id)
+
+    Context.new(state: state)
+  end
+
+  @impl Sarissa.Decider
+  def decide(%__MODULE__{}, state) do
     result =
-      case Repo.get_by(Inventory, product_id: query.id) do
+      case state do
         %Inventory{} = inventory ->
           %{product_id: inventory.product_id, inventory: inventory.inventory}
 

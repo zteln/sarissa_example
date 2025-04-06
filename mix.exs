@@ -55,7 +55,8 @@ defmodule SarissaExample.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
-      {:sarissa, git: "https://github.com/zteln/sarissa.git"}
+      {:sarissa, path: "/Users/simonlentz/my_repos/sarissa/"},
+      # {:sarissa, git: "https://github.com/zteln/sarissa.git"},
       {:ecto_sql, "~> 3.12"},
       {:postgrex, "~> 0.20.0"}
     ]
