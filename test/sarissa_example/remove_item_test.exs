@@ -2,7 +2,10 @@ defmodule SarissaExample.RemoveItemTest do
   use ExUnit.Case, async: true
   import SarissaCase
 
-  setup [:new_channel]
+  @moduletag :tmp_dir
+  # setup [:new_channel, :tmp_file]
+  test_channel()
+  setup :tmp_file
 
   test "remove item", context do
     gwt(
@@ -59,5 +62,10 @@ defmodule SarissaExample.RemoveItemTest do
       },
       {:error, :item_not_in_cart}
     )
+  end
+
+  defp tmp_file(context) do
+    file = Path.join(context.tmp_dir, Spear.Uuid.uuid_v4() <> ".txt")
+    %{persistant_file: file}
   end
 end

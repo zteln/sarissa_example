@@ -7,7 +7,14 @@
 # General application configuration
 import Config
 
+config :sarissa_example, SarissaExample.Repo,
+  database: "sarissa_example_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
+
 config :sarissa_example,
+  ecto_repos: [SarissaExample.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint

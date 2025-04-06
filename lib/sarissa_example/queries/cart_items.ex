@@ -1,18 +1,27 @@
 defmodule SarissaExample.Queries.CartItems do
-  use Sarissa.Decider, [:id, :description, :image, :price, :item_id, :product_id]
-  use Sarissa.Evolver
+  @moduledoc """
+  Decider with Projector example
+  """
+  use Sarissa.Decider, [:id]
+  use Sarissa.Projector
 
   alias Sarissa.Events
   alias Sarissa.EventStore.Channel
 
   @impl Sarissa.Evolver
-  def initialize(_opts), do: %{}
+  def initial_context(_opts) do
+    channel = Channel.new("cart", type: :by_category)
+    state = %{}
+    Sarissa.Context.new(channel: channel, state: state)
+  end
 
   @impl Sarissa.Evolver
+  def handle_event(%Events.CartCreated{} = event, state) do
+    Map.put(state, event.cart_id, %{})
+  end
+
   def handle_event(%Events.ItemAdded{} = event, state) do
-    Map.put(
-      state,
-      event.item_id,
+    item =
       Map.take(event, [
         :description,
         :image,
@@ -20,21 +29,34 @@ defmodule SarissaExample.Queries.CartItems do
         :item_id,
         :product_id
       ])
+
+    Map.update(
+      state,
+      event.cart_id,
+      %{event.item_id => item},
+      &Map.put(&1, event.item_id, item)
     )
   end
 
   def handle_event(%Events.ItemRemoved{} = event, state) do
-    Map.delete(state, event.item_id)
+    cart_items =
+      state
+      |> Map.get(event.cart_id)
+      |> Map.delete(event.item_id)
+
+    case Enum.count(cart_items) do
+      0 -> Map.delete(state, event.cart_id)
+      _ -> Map.put(state, event.cart_id, cart_items)
+    end
   end
 
   @impl Sarissa.Decider
-  def channel(id, _opts), do: Channel.new("cart", id: id)
-
-  @impl Sarissa.Decider
-  def state(channel, opts), do: evolve(channel, opts)
-
-  @impl Sarissa.Decider
   def decide(%__MODULE__{} = query, state) do
-    {:read, Enum.map(state, fn {_item_id, item} -> item end)}
+    result =
+      state
+      |> Map.get(query.id, %{})
+      |> Enum.map(fn {_item_id, item} -> item end)
+
+    {:read, result}
   end
 end

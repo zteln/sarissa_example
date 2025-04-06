@@ -9,6 +9,7 @@ defmodule SarissaExample.Application do
   def start(_type, _args) do
     children = [
       {Sarissa.EventStore, connection_string: "esdb://localhost:2113"},
+      SarissaExample.Repo,
       SarissaExampleWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:sarissa_example, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SarissaExample.PubSub},
@@ -17,6 +18,8 @@ defmodule SarissaExample.Application do
       # Start a worker by calling: SarissaExample.Worker.start_link(arg)
       # {SarissaExample.Worker, arg},
       # Start to serve requests, typically the last entry
+      SarissaExample.Queries.CartItems,
+      SarissaExample.Queries.Inventories,
       SarissaExampleWeb.Endpoint
     ]
 

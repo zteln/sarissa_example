@@ -2,7 +2,8 @@ defmodule SarissaExample.AddItemTest do
   use ExUnit.Case, async: true
   import SarissaCase
 
-  setup [:new_channel]
+  # setup [:new_channel]
+  test_channel()
 
   test "add item", context do
     gwt(

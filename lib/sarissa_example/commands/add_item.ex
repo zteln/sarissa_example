@@ -1,4 +1,7 @@
 defmodule SarissaExample.Commands.AddItem do
+  @moduledoc """
+  Decider with Evolver example
+  """
   use Sarissa.Decider, [:id, :description, :image, :price, :item_id, :product_id]
   use Sarissa.Evolver
 
@@ -6,20 +9,16 @@ defmodule SarissaExample.Commands.AddItem do
   alias Sarissa.EventStore.Channel
 
   @impl Sarissa.Evolver
-  def initialize(_opts), do: 0
+  def initial_context(opts) do
+    channel = Channel.new("cart", id: opts[:id])
+    initial_state = 0
+    Sarissa.Context.new(channel: channel, state: initial_state)
+  end
 
   @impl Sarissa.Evolver
   def handle_event(%Events.ItemAdded{}, no_of_items_in_cart), do: no_of_items_in_cart + 1
 
   def handle_event(%Events.ItemRemoved{}, no_of_items_in_cart), do: no_of_items_in_cart - 1
-
-  @impl Sarissa.Decider
-  def channel(id, _opts), do: Channel.new("cart", id: id)
-
-  @impl Sarissa.Decider
-  def state(channel, opts) do
-    evolve(channel, opts)
-  end
 
   @impl Sarissa.Decider
   def decide(%__MODULE__{} = command, no_of_items_in_cart) do

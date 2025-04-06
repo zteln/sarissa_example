@@ -4,4 +4,6 @@ defmodule SarissaExample.Events do
   event(CartCreated, [:cart_id])
   event(ItemAdded, [:cart_id, :description, :image, :price, :item_id, :product_id])
   event(ItemRemoved, [:cart_id, :item_id])
+  event(CartCleared, [:cart_id])
+  event(InventoryChanged, [:product_id, :inventory])
 end
